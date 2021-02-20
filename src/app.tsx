@@ -3,6 +3,8 @@ import { Provider } from 'react-redux';
 
 import dva from './utils/dva';
 import models from './models';
+
+import 'taro-ui/dist/style/index.scss';
 import './app.scss';
 
 const dvaApp = dva.createApp({

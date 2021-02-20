@@ -1,8 +1,13 @@
+const isH5 = process.env.CLIENT_ENV === 'h5';
+const HOST = '"https://xxx"'
+
 module.exports = {
   env: {
-    NODE_ENV: '"production"'
+    NODE_ENV: JSON.stringify('production'),
   },
   defineConstants: {
+    HOST: '"/api"',
+    NOCONSOLE: true,
   },
   mini: {},
   h5: {
@@ -14,5 +19,5 @@ module.exports = {
      *     .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin, [])
      * }
      */
-  }
-}
+  },
+};

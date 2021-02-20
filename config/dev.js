@@ -3,7 +3,7 @@ const HOST = '"https://xxx"';
 
 module.exports = {
   env: {
-    NODE_ENV: '"development"',
+    NODE_ENV: JSON.stringify('development'),
   },
   defineConstants: {
     HOST: isH5 ? '"/api"' : HOST,

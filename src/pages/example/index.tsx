@@ -1,11 +1,15 @@
-import Taro from '@tarojs/taro';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { View, Text } from '@tarojs/components';
+import Taro from '@tarojs/taro';
+import { AtButton } from 'taro-ui';
+import { View, Text, Image } from '@tarojs/components';
+import { connectState } from '@/models';
+import Icon from '@/components/icon';
+import exampleImage from '@/asset/images/example.png';
 
-import { connectState } from '../../models';
 import useDispatchExample from './useDispatch';
-import './index.scss';
+import styles from './index.module.scss';
+
 
 const Index = () => {
   const { example } = useSelector((state: connectState) => state.example);
@@ -17,11 +21,14 @@ const Index = () => {
   }, []);
 
   return (
-    <View className="index">
+    <View className={styles.index}>
       <Text>{example}</Text>
       <View onClick={() => Taro.navigateTo({ url: '/subPages/example/index' })}>
         点我
       </View>
+      <Image src={exampleImage} />
+      <Icon />
+      <AtButton>111</AtButton>
     </View>
   );
 };

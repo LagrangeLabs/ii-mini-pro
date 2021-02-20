@@ -37,6 +37,8 @@
   "dependencies": {
     "@babel/runtime": "^7.7.7",
     "@tarojs/components": "3.0.17",
+    "@tarojs/plugin-sass": "^2.2.10",
+    "@tarojs/plugin-terser": "^2.2.10",
     "@tarojs/react": "3.0.17",
     "@tarojs/redux": "^2.2.10",
     "@tarojs/redux-h5": "^2.2.10",
@@ -44,12 +46,15 @@
     "@tarojs/taro": "3.0.17",
     "dva-core": "^2.0.4",
     "dva-loading": "^3.0.22",
+    "mddir": "^1.1.1",
+    "nervjs": "^1.5.7",
     "react": "^16.10.0",
     "react-dom": "^16.10.0",
     "react-redux": "^7.2.2",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "taro-ui": "3.0.0-alpha.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",

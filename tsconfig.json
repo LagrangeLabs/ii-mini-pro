@@ -15,20 +15,18 @@
     "sourceMap": true,
     "baseUrl": ".",
     "rootDir": ".",
-    "jsx": "react",
-    "jsxFactory": "React.createElement",
+    "jsx": "preserve",
+    "jsxFactory": "Taro.createElement",
     "allowJs": true,
     "resolveJsonModule": true,
     "typeRoots": ["node_modules/@types", "global.d.ts"],
-    // "paths": {
-    //   // "@/*": ["./src/*"],
-    //   "@/models/*": ["./src/models/*"],
-    //   "@/utils/*": ["./src/utils/*"],
-    //   "@/subPages/*": ["./src/subPages/*"],
-    //   "@/components/*": ["./src/components/*"],
-    //   "@/hooks/*": ["./src/hooks/*"],
-    //   "@/assets/*": ["./src/assets/*"],
-    // }
+    "paths": {
+      "@/utils": ["./src/utils/*"],
+      "@/hooks": ["./src/hooks/*"],
+      "@/asset": ["./src/asset/*"],
+      "@/components": ["./src/components/*"],
+      "@/*": ["./src/*"]
+    }
   },
   "exclude": ["node_modules", "dist"],
   "compileOnSave": false

@@ -18,15 +18,17 @@ const config = {
     options: {},
   },
   framework: 'react',
-  // alias: {
-  //   // '@/*': resolve(__dirname, '..', 'src'),
-  //   '@/models/*': resolve(__dirname, '..', 'src/models'),
-  //   '@/utils/*': resolve(__dirname, '..', 'src/utils'),
-  //   '@/subPages/*': resolve(__dirname, '..', 'src/subPages'),
-  //   '@/components/*': resolve(__dirname, '..', 'src/components'),
-  //   '@/hooks/*': resolve(__dirname, '..', 'src/hooks'),
-  //   '@/assets/*': resolve(__dirname, '..', 'src/assets'),
-  // },
+  plugins: ['@tarojs/plugin-sass', '@tarojs/plugin-terser'],
+  alias: {
+    '@/utils': resolve(__dirname, '..', 'src/utils'),
+    '@/hooks': resolve(__dirname, '..', 'src/hooks'),
+    '@/asset': resolve(__dirname, '..', 'src/asset'),
+    '@/components': resolve(__dirname, '..', 'src/components'),
+    '@/': resolve(__dirname, '..', 'src'),
+  },
+  sass: {
+    resource: [resolve(__dirname, '..', 'src/asset/styles/mixin.scss')],
+  },
   mini: {
     postcss: {
       pxtransform: {
@@ -40,7 +42,7 @@ const config = {
         },
       },
       cssModules: {
-        enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+        enable: true, // 默认为 false，如需使用 css modules 功能，则设为 true
         config: {
           namingPattern: 'module', // 转换模式，取值为 global/module
           generateScopedName: '[name]__[local]___[hash:base64:5]',
@@ -52,12 +54,9 @@ const config = {
     publicPath: '/',
     staticDirectory: 'static',
     postcss: {
-      autoprefixer: {
-        enable: true,
-        config: {},
-      },
+      autoprefixer: {},
       cssModules: {
-        enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+        enable: true, // 默认为 false，如需使用 css modules 功能，则设为 true
         config: {
           namingPattern: 'module', // 转换模式，取值为 global/module
           generateScopedName: '[name]__[local]___[hash:base64:5]',

@@ -54,7 +54,9 @@ const config = {
     publicPath: '/',
     staticDirectory: 'static',
     postcss: {
-      autoprefixer: {},
+      autoprefixer: {
+        enable: true,
+      },
       cssModules: {
         enable: true, // 默认为 false，如需使用 css modules 功能，则设为 true
         config: {

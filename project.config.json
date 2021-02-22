@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "myApp",
-  "description": "测试",
+  "projectname": "ii-mini-pro",
+  "description": "taro 多端模版",
   "appid": "touristappid",
   "setting": {
     "urlCheck": true,

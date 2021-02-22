@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Taro from '@tarojs/taro';
-import { AtButton, AtIcon } from 'taro-ui';
+import { AtButton } from 'taro-ui';
 import { View, Text, Image } from '@tarojs/components';
 import { connectState } from '@/models';
+import Icon from '@/components/Icon';
 import exampleImage from '@/asset/images/example.png';
 
 import useDispatchExample from './useDispatch';
 import styles from './index.module.scss';
-
 
 const Index = () => {
   const { example } = useSelector((state: connectState) => state.example);
@@ -26,7 +26,7 @@ const Index = () => {
         点我
       </View>
       <Image src={exampleImage} />
-      <AtIcon prefixClass='icon' value='wancheng' size='30' color='#F00'></AtIcon>
+      <Icon value="iconicons8-phone" size={30} color="#F00" />
       <AtButton>111</AtButton>
     </View>
   );

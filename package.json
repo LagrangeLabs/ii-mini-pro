@@ -1,5 +1,5 @@
 {
-  "name": "myApp",
+  "name": "ii-mini-pro",
   "version": "1.0.0",
   "private": true,
   "description": "测试",
@@ -46,7 +46,6 @@
     "@tarojs/taro": "3.0.17",
     "dva-core": "^2.0.4",
     "dva-loading": "^3.0.22",
-    "mddir": "^1.1.1",
     "nervjs": "^1.5.7",
     "react": "^16.10.0",
     "react-dom": "^16.10.0",

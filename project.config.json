@@ -2,7 +2,7 @@
   "miniprogramRoot": "./dist",
   "projectname": "ii-mini-pro",
   "description": "taro 多端模版",
-  "appid": "touristappid",
+  "appid": "wxd15ba3f9e59d2f7d",
   "setting": {
     "urlCheck": true,
     "es6": false,

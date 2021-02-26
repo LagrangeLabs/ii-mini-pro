@@ -20,10 +20,10 @@
     |-- .npmrc
     |-- README.md
     |-- babel.config.js
-    |-- global.d.ts
+    |-- global.d.ts                         # 全局声明文件
     |-- package-lock.json
     |-- package.json
-    |-- project.config.json
+    |-- project.config.json                 # 项目配置文件（小程序 appid 等）
     |-- tsconfig.json                       # ts 配置
     |-- yarn.lock
     |-- config                              # 配置目录
@@ -38,7 +38,6 @@
         |-- index.html                      # h5 外部文件
         |-- asset                           # 本地静态资源
         |-- components                      # 业务通用组件
-        |-- hooks                           # 业务通用hook
         |-- models                          # 全局 model
         |-- pages                           # 页面文件目录
         |-- subPages                        # 分包页面文件目录

@@ -1,6 +1,8 @@
-import example, { IState as exampleState } from './example';
-export default [example];
+import init from './init';
+import { IState as initState } from './init/interface';
+
+export default [init];
 
 export interface connectState {
-  example: exampleState;
+  init: initState
 }

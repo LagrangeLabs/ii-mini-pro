@@ -1,0 +1,21 @@
+.index {
+  position        : relative;
+  display         : flex;
+  flex-direction  : column;
+  width           : 100%;
+  height          : 100vh;
+  padding         : 14px 0px 140px;
+  background-color: #F3F3F3;
+}
+
+.initLogo {
+  width : 200px;
+  height: 114px;
+  margin: 100px auto;
+}
+
+.initBack {
+  position: absolute;
+  bottom  : 176px;
+  width   : 100%;
+}

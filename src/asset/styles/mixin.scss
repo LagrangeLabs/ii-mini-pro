@@ -1,11 +1,3 @@
-@mixin titles-text {
-  font: {
-    size: 28px;
-  }
-  height: 56px;
-  color: #6a6d7d;
-}
-
 @mixin flex-center-between {
   display: flex;
   align-items: center;

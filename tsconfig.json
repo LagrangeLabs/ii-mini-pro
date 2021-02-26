@@ -22,7 +22,7 @@
     "typeRoots": ["node_modules/@types", "global.d.ts"],
     "paths": {
       "@/utils": ["./src/utils/*"],
-      "@/hooks": ["./src/hooks/*"],
+      "@/services": ["./src/services/*"],
       "@/asset": ["./src/asset/*"],
       "@/components": ["./src/components/*"],
       "@/*": ["./src/*"]

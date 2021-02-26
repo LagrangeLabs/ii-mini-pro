@@ -1,0 +1,26 @@
+.titleContainer {
+  position: fixed;
+  top     : 0px;
+  width   : 100%;
+  padding : 0px 30px;
+  z-index : 999;
+}
+
+.backIconWrap {
+  position: absolute;
+  top     : 0px;
+  height  : 100%;
+  width   : 100px;
+  @include flex-center-start;
+}
+
+.title {
+  @include flex-center-center;
+  width          : 100%;
+  height         : 100%;
+  font-size      : 30px;
+  font-family    : PingFangSC, PingFangSC-Medium;
+  font-weight    : 500;
+  color          : #464a5a;
+  text-align     : center;
+}

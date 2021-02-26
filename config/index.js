@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 
 const config = {
-  projectName: 'myApp',
+  projectName: 'ii-mini-pro',
   date: '2021-2-7',
   designWidth: 750,
   deviceRatio: {
@@ -21,7 +21,7 @@ const config = {
   plugins: ['@tarojs/plugin-sass', '@tarojs/plugin-terser'],
   alias: {
     '@/utils': resolve(__dirname, '..', 'src/utils'),
-    '@/hooks': resolve(__dirname, '..', 'src/hooks'),
+    '@/services': resolve(__dirname, '..', 'src/services'),
     '@/asset': resolve(__dirname, '..', 'src/asset'),
     '@/components': resolve(__dirname, '..', 'src/components'),
     '@/': resolve(__dirname, '..', 'src'),
@@ -53,6 +53,9 @@ const config = {
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
+    router: {
+      mode: 'browser',
+    },
     postcss: {
       autoprefixer: {
         enable: true,

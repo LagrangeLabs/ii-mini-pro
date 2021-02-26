@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Taro from '@tarojs/taro';
 import { View, Image } from '@tarojs/components';
-import TitleBar from '@/components/titleBar';
-import TabBar from '@/components/tabBar'
+import { TitleBar, TabBar } from '@/components/index';
 import initLogo from '@/asset/images/initLogo.png';
 import initBack from '@/asset/images/initBack.png';
 import { connectState } from '@/models';
@@ -25,7 +24,7 @@ const Index = () => {
       <TitleBar title={title} hasBack={false} />
       <Image className={styles.initLogo} src={initLogo} />
       <Image className={styles.initBack} src={initBack} />
-      <TabBar current={1}/>
+      <TabBar current={1} />
     </View>
   );
 };

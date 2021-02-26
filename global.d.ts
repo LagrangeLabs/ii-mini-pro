@@ -27,3 +27,14 @@ declare namespace NodeJS {
 declare interface ISave<T> {
   payload: Partial<T>;
 }
+ 
+interface IRely {
+  [keys: string]: any;
+}
+
+declare interface IModel<S extends IRely, R extends IRely, E extends IRely> {
+  namespace: string;
+  state: S;
+  reducers: R;
+  effects: E;
+}

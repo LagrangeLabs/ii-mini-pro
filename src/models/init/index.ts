@@ -1,6 +1,6 @@
-import { IState, IInitModel } from './interface';
+import { IState, IReducers, IEffects } from './interface';
 
-const InitModel: IInitModel = {
+const InitModel: IModel<IState, IReducers, IEffects> = {
   namespace: 'init',
   state: {
     title: '',

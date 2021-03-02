@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, CSSProperties } from 'react';
 import Taro, { useDidShow } from '@tarojs/taro';
 import { View } from '@tarojs/components';
 import { initSetStorage, isNull } from '@/utils/tools';
@@ -11,6 +11,7 @@ interface Props {
   hasBack?: boolean;
   bgColor?: string;
   fontColor?: string;
+  style?: CSSProperties;
 }
 
 const _routers = {
@@ -23,6 +24,7 @@ const TitleBar = (props: Props) => {
     hasBack = true,
     bgColor = '#ffffff',
     fontColor = '#464a5a',
+    style = {},
   } = props;
   const { getStorageSync } = Taro;
 
@@ -69,7 +71,7 @@ const TitleBar = (props: Props) => {
   };
 
   return (
-    <View style={{ position: 'relative' }}>
+    <View style={{ position: 'relative', ...style }}>
       {title && process.env.TARO_ENV === 'weapp' && (
         <View>
           <View

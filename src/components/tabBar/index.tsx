@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import Taro from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
 import Icon from '../Icon';
@@ -10,6 +10,7 @@ interface Props {
   backgroundColor?: string;
   iconSize?: number;
   fontSize?: number;
+  style?: CSSProperties
 }
 
 interface ITab {
@@ -32,10 +33,12 @@ const TabBar = (props: Props) => {
     backgroundColor = '#fff',
     iconSize = 24,
     fontSize = 14,
+    style = {}
   } = props;
 
   const renderTab = (tab: ITab, index: number = 1) => (
     <View
+      style={style}
       className={styles.tab}
       onClick={() => Taro.switchTab({ url: tab.path })}
     >

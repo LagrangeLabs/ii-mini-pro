@@ -15,6 +15,8 @@ interface Props {
 
 const _routers = {
   'ii-mini-pro': '/pages/init/index',
+  'Tabber': '/subPages/render-tabber/index',
+  'TitleBar': '/subPages/render-titleBar/index',
 };
 
 const TitleBar = (props: Props) => {
@@ -38,13 +40,12 @@ const TitleBar = (props: Props) => {
   const back = () => {
     const routers = getStorageSync('routers');
     const url = routers[routers.length - 2] || routers[routers.length - 1];
-    const backWay = url.includes('/pages') ? 'switchTab' : 'navigateTo';
     const success = () => {
       routers.pop();
       initSetStorage('routers', routers);
     };
 
-    Taro[backWay]({
+    Taro.redirectTo({
       url,
       success,
     });
@@ -95,7 +96,7 @@ const TitleBar = (props: Props) => {
               {hasBack && (
                 <View className={styles.backIconWrap} onClick={back}>
                   <Icon
-                    value="icon-fanhui"
+                    value="iconfanhui"
                     size={25}
                     color="#464A5A"
                     onClick={back}

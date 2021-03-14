@@ -2,9 +2,7 @@ import { IState, IReducers, IEffects } from './interface';
 
 const InitModel: IModel<IState, IReducers, IEffects> = {
   namespace: 'init',
-  state: {
-    title: '',
-  },
+  state: {},
 
   reducers: {
     save(state, { payload }: ISave<IState>) {
@@ -12,11 +10,7 @@ const InitModel: IModel<IState, IReducers, IEffects> = {
     },
   },
 
-  effects: {
-    *initTitle({ payload }, { put }) {
-      return yield put({ type: 'save', payload });
-    },
-  },
+  effects: {},
 };
 
 export default InitModel;

@@ -3,10 +3,10 @@ export default {
     'pages/init/index',
   ],
   subPackages: [
-    // {
-    //   root: 'subPages/',
-    //   pages: [],
-    // },
+    {
+      root: 'subPages/',
+      pages: ['render-tabber/index', 'render-titleBar/index'],
+    },
   ],
   window: {
     backgroundTextStyle: 'light',

@@ -51,12 +51,13 @@ const TitleBar = (props: Props) => {
   };
 
   const saveRouters = () => {
-    const routers = getStorageSync('routers') || ['/pages/init/index'];
+    const firstKey = Object.keys(_routers)[0]
+    const routers = getStorageSync('routers') || [_routers[firstKey]];
     const filterRouter =
       routers.filter((item) => item !== _routers[title]) || [];
 
-    title === '常熟移车' || isNull(filterRouter)
-      ? initSetStorage('routers', ['/pages/init/index'])
+    title === firstKey || isNull(filterRouter)
+      ? initSetStorage('routers', [_routers[firstKey]])
       : initSetStorage('routers', [...filterRouter, _routers[title]]);
   };
 
@@ -94,7 +95,7 @@ const TitleBar = (props: Props) => {
               {hasBack && (
                 <View className={styles.backIconWrap} onClick={back}>
                   <Icon
-                    value="iconfanhui"
+                    value="icon-fanhui"
                     size={25}
                     color="#464A5A"
                     onClick={back}

@@ -1,14 +1,14 @@
 import React from 'react';
 import { View } from '@tarojs/components';
 
-interface IProps {
+interface IconProps {
   icon: string;
   size: number;
   color: string;
   onClick?(): void;
 }
 
-const Icon = (props: IProps) => {
+const Icon = (props: IconProps) => {
   const { icon, size, color, onClick = () => {} } = props;
 
   return (

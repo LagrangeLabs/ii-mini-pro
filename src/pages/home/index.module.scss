@@ -4,8 +4,6 @@
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  padding: 140px 40px 40px 40px;
-  background: #f9f9f9;
   .item {
     @include flex-between-center;
     width: 100%;

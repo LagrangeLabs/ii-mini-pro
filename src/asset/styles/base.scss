@@ -1,7 +1,8 @@
 page {
-  height    : 100vh;
+  height: 100vh;
   overflow-y: scroll;
-  background: #ffffff;
+  background: #f9f9f9;
+  box-sizing: border-box;
 }
 
 div,
@@ -23,26 +24,26 @@ button {
 }
 
 .toast-body {
-  max-width       : 412px;
+  max-width: 412px;
   background-color: rgba(0, 0, 0, 0.6) !important;
 }
 
 .toast-body span {
-  word-break : break-all !important;
-  font-size  : 28px;
+  word-break: break-all !important;
+  font-size: 28px;
   font-family: PingFangSC, PingFangSC-Regular !important;
   font-weight: 400 !important;
-  color      : #ffffff !important;
+  color: #ffffff !important;
 }
 
-.taro__toast>div {
+.taro__toast > div {
   max-width: 412px !important;
 }
 
 .taro__toast p {
-  word-break : break-all !important;
-  font-size  : 28px;
+  word-break: break-all !important;
+  font-size: 28px;
   font-family: PingFangSC, PingFangSC-Regular !important;
   font-weight: 400 !important;
-  color      : #ffffff !important;
+  color: #ffffff !important;
 }

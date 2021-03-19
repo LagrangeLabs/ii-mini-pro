@@ -4,8 +4,7 @@ import { View, Image } from '@tarojs/components';
 
 import defaultBack from './back.png';
 import styles from './index.module.scss';
-
-interface Props {
+export interface TitleBarProps {
   title: string;
   hasBack?: boolean;
   bgColor?: string;
@@ -14,11 +13,15 @@ interface Props {
 
 const _routers = {
   'ii-mini-pro': '/pages/home/index',
+  图标: '/componentsExample/Icon/index',
+  '滚动列表（包含下拉刷新，加载）': '/componentsExample/scroll-list/index',
+  底部tabber: '/componentsExample/tab-bar/index',
+  微信导航栏: '/componentsExample/title-bar/index',
 };
 
 const { setStorageSync } = Taro;
 
-const TitleBar = (props: Props) => {
+const TitleBar = (props: TitleBarProps) => {
   const {
     title,
     hasBack = true,
@@ -41,15 +44,15 @@ const TitleBar = (props: Props) => {
     if (!routers.length) {
       return;
     }
-    
-    const currentUrl = routers[routers.length - 1];
-    const backWay = currentUrl.includes('/pages') ? 'switchTab' : 'redirectTo';
+
+    const currentUrl =
+      routers[routers.length - 2] || routers[routers.length - 1];
     const success = () => {
       routers.pop();
       setStorageSync('routers', routers);
     };
 
-    Taro[backWay]({
+    Taro.reLaunch({
       url: currentUrl,
       success,
     });

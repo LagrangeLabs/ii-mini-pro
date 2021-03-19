@@ -4,6 +4,7 @@ import Taro from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
 import { connectState } from '@/models';
 import { IState as homeState } from '@/models/home/interface';
+import { PageContainer } from '@/components/index';
 
 import { ComponentList } from './index.config';
 import useDispatchInit from './useDispatch';
@@ -30,11 +31,11 @@ const Index = () => {
   );
 
   return (
-    <View className={styles.index}>
+    <PageContainer className={styles.index} title="ii-mini-pro" hasBack={false}>
       {ComponentList.map((component: IRenderItem, index: number) =>
         renderItem(component, index),
       )}
-    </View>
+    </PageContainer>
   );
 };
 

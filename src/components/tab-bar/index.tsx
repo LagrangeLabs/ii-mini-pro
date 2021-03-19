@@ -5,7 +5,7 @@ import Icon from '../Icon';
 
 import styles from './index.module.scss';
 
-interface Props {
+export interface TabBarProps {
   current: number;
   backgroundColor?: string;
   iconSize?: number;
@@ -26,7 +26,7 @@ const tabList: ITab[] = [
   },
 ];
 
-const TabBar = (props: Props) => {
+const TabBar = (props: TabBarProps) => {
   const {
     current,
     backgroundColor = '#fff',

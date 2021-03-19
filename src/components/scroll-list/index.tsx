@@ -7,7 +7,7 @@ import defaultIcon from './loading.png';
 
 import './index.scss';
 
-interface Props extends ScrollViewProps {
+export interface ScrollListProps extends ScrollViewProps {
   loading?: boolean;
   hasRefresh?: boolean;
   hasMore?: boolean;
@@ -19,7 +19,7 @@ interface Props extends ScrollViewProps {
 
 let starDistance = 0;
 
-const ScrollList = (props: Props) => {
+const ScrollList = (props: ScrollListProps) => {
   const {
     children,
     className,

@@ -1,12 +1,17 @@
 export default {
   pages: [
-    'pages/init/index',
+    'pages/home/index',
   ],
   subPackages: [
-    // {
-    //   root: 'subPages/',
-    //   pages: [],
-    // },
+    {
+      root: 'componentsExample/',
+      pages: [
+        'Icon/index',
+        'scroll-list/index',
+        'tab-bar/index',
+        'title-bar/index',
+      ],
+    },
   ],
   window: {
     backgroundTextStyle: 'light',

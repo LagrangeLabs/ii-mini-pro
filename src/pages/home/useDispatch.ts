@@ -1,11 +1,9 @@
 import { useGenereateDispatch } from '@/utils/hook';
 
-const InitconfigDispatch = {
-  initTitle: 'initTitle',
-};
+const HomeConfigDispatch = {};
 
 const useDispatchInit = () => {
-  return useGenereateDispatch('init', InitconfigDispatch);
+  return useGenereateDispatch('home', HomeConfigDispatch);
 };
 
 export default useDispatchInit;

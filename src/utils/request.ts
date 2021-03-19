@@ -1,4 +1,3 @@
-import React from 'react';
 import Taro from '@tarojs/taro';
 import axios from 'axios';
 
@@ -21,6 +20,7 @@ interface IRequest {
     | 'PUT'
     | 'patch'
     | 'PATCH';
+  params?: any;
   data?: any;
   timeout?: number;
   headers?: any;
@@ -32,14 +32,10 @@ const { getStorageSync, showLoading } = Taro;
 
 // h5 请求
 const h5_request = (params: IRequest) => {
-  const { method, data, isShowLoading } = params;
+  const { isShowLoading } = params;
 
   return new Promise((resolve, reject) => {
-    axios({
-      ...params,
-      params: method === 'get' ? data : null,
-      data: method === 'get' ? null : data,
-    }).then(
+    axios(params).then(
       (res) => {
         const result = res.data;
         if (isShowLoading) {
@@ -74,6 +70,7 @@ const weapp_request = (params: IRequest) => {
 export default async (params: IRequest) => {
   const {
     url,
+    params: dataParams = {},
     data = {},
     headers = {},
     needEncrypt = false,
@@ -91,10 +88,14 @@ export default async (params: IRequest) => {
     ...headers,
   };
 
-  const resetData = data;
+  // 添加公共请求体数据
+  const resetData = data || {};
+  const resetDataParams = dataParams || {};
 
+  // 添加公共请求路径
   const resetUrl = process.env.HOST + ROOT_PATH + url;
 
+  // 是否显示请求提示
   if (isShowLoading) {
     showLoading({
       title: '加载中',
@@ -107,6 +108,7 @@ export default async (params: IRequest) => {
     ...rest,
     url: resetUrl,
     data: resetData,
+    params: resetDataParams,
     header: resetHeaders,
   });
 };

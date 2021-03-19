@@ -1,9 +1,8 @@
-import React, { useState, CSSProperties } from 'react';
+import React, { useState } from 'react';
 import Taro, { useDidShow } from '@tarojs/taro';
-import { View } from '@tarojs/components';
-import { initSetStorage, isNull } from '@/utils/tools';
+import { View, Image } from '@tarojs/components';
 
-import Icon from '../Icon';
+import defaultBack from './back.png';
 import styles from './index.module.scss';
 
 interface Props {
@@ -11,12 +10,13 @@ interface Props {
   hasBack?: boolean;
   bgColor?: string;
   fontColor?: string;
-  style?: CSSProperties;
 }
 
 const _routers = {
-  'ii-mini-pro': '/pages/init/index',
+  'ii-mini-pro': '/pages/home/index',
 };
+
+const { setStorageSync } = Taro;
 
 const TitleBar = (props: Props) => {
   const {
@@ -24,7 +24,6 @@ const TitleBar = (props: Props) => {
     hasBack = true,
     bgColor = '#ffffff',
     fontColor = '#464a5a',
-    style = {},
   } = props;
   const { getStorageSync } = Taro;
 
@@ -32,36 +31,46 @@ const TitleBar = (props: Props) => {
   const [titleBarPaddingTop, setTitleBarPaddingTop] = useState(0);
   const [menuButtonHeight, setMenuButtonHeight] = useState(0);
 
-  useDidShow(() => {
-    _routers[title] && saveRouters();
+  useDidShow(async () => {
+    await saveRouters();
     getTitleBarHeight();
   });
 
-  const back = () => {
-    const routers = getStorageSync('routers');
-    const url = routers[routers.length - 2] || routers[routers.length - 1];
-    const backWay = url.includes('/pages') ? 'switchTab' : 'navigateTo';
+  const back = async () => {
+    const routers = (await getStorageSync('routers')) || [];
+    if (!routers.length) {
+      return;
+    }
+    
+    const currentUrl = routers[routers.length - 1];
+    const backWay = currentUrl.includes('/pages') ? 'switchTab' : 'redirectTo';
     const success = () => {
       routers.pop();
-      initSetStorage('routers', routers);
+      setStorageSync('routers', routers);
     };
 
     Taro[backWay]({
-      url,
+      url: currentUrl,
       success,
     });
   };
 
-  const saveRouters = () => {
-    const routers = getStorageSync('routers') || ['/pages/init/index'];
-    const filterRouter =
-      routers.filter((item) => item !== _routers[title]) || [];
+  const saveRouters = async () => {
+    if (!_routers[title]) {
+      return;
+    }
+    const _routerFirstKey = Object.keys(_routers)[0];
+    const routers = getStorageSync('routers') || [];
 
-    title === '常熟移车' || isNull(filterRouter)
-      ? initSetStorage('routers', ['/pages/init/index'])
-      : initSetStorage('routers', [...filterRouter, _routers[title]]);
+    // 如果当前路由是首页（默认首个）路由
+    if (title === _routerFirstKey) {
+      // 清空历史路由缓存，并初始化路由缓存
+      return await setStorageSync('routers', [_routers[title]]);
+    }
+    await setStorageSync('routers', [...routers, _routers[title]]);
   };
 
+  // 获取 titleBar 高度（适配不同机型）
   const getTitleBarHeight = () => {
     const menuButtonInfo = Taro.getMenuButtonBoundingClientRect(); //胶囊相关信息
     const { top, height } = menuButtonInfo;
@@ -71,7 +80,7 @@ const TitleBar = (props: Props) => {
   };
 
   return (
-    <View style={{ position: 'relative', ...style }}>
+    <View style={{ position: 'relative' }}>
       {title && process.env.TARO_ENV === 'weapp' && (
         <View>
           <View
@@ -95,12 +104,7 @@ const TitleBar = (props: Props) => {
             >
               {hasBack && (
                 <View className={styles.backIconWrap} onClick={back}>
-                  <Icon
-                    value="iconfanhui"
-                    size={25}
-                    color="#464A5A"
-                    onClick={back}
-                  />
+                  <Image src={defaultBack} className={styles.backIcon} />
                 </View>
               )}
               <View className={styles.title} style={{ color: fontColor }}>

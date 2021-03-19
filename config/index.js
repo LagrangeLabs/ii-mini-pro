@@ -27,7 +27,10 @@ const config = {
     '@/': resolve(__dirname, '..', 'src'),
   },
   sass: {
-    resource: [resolve(__dirname, '..', 'src/asset/styles/mixin.scss')],
+    resource: [
+      resolve(__dirname, '..', 'src/asset/styles/global/flex.scss'),
+      resolve(__dirname, '..', 'src/asset/styles/global/theme.scss'),
+    ],
   },
   mini: {
     postcss: {

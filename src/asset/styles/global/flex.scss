@@ -1,0 +1,77 @@
+// 默认 中部为主轴 X轴， 右部为副轴 Y轴
+
+// 主轴为 flex-start， 副轴为基础三种定位
+@mixin flex-flexStart-flexStart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@mixin flex-flexStart-center {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@mixin flex-flexStart-flexEnd {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+// 主轴为 space-between， 副轴为基础三种定位
+@mixin flex-between-flexStart {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+@mixin flex-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-between-flexEnd {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+// 主轴为 center， 副轴为基础三种定位
+@mixin flex-center-flexStart {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@mixin flex-center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-center-flexEnd {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+// 主轴为 flex-end, 副轴为基础三种定位
+@mixin flex-flexEnd-flexStart {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+@mixin flex-flexEnd-center {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@mixin flex-flexEnd-flexEnd {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}

@@ -1,18 +1,6 @@
 import Taro from '@tarojs/taro';
 
 /**
- * 初始化存储
- * @param {*} key
- * @param {*} data
- */
-export const initSetStorage = (key: string, data: any) => {
-  return Taro.setStorage({
-    key,
-    data,
-  });
-};
-
-/**
  * 判断是否为空数据项
  * @param {*} value
  */

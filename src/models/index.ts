@@ -1,8 +1,8 @@
-import init from './init';
-import { IState as initState } from './init/interface';
+import init from './home';
+import { IState as initState } from './home/interface';
 
 export default [init];
 
 export interface connectState {
-  init: initState
+  home: initState
 }

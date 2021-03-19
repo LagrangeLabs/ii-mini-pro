@@ -45,7 +45,7 @@ const TabBar = (props: Props) => {
         {tab.title}
       </Text>
       <Icon
-        value={tab.icon}
+        icon={tab.icon}
         size={iconSize}
         color={current === index ? '#0069FF' : '#98989E'}
       />

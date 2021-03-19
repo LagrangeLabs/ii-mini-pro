@@ -23,7 +23,7 @@ const Index = () => {
     <View
       key={key}
       className={styles.item}
-      onClick={() => Taro.redirectTo({ url: `/componentsExample/${url}` })}
+      onClick={() => Taro.navigateTo({ url: `/componentsExample/${url}` })}
     >
       <Text>{title}</Text>
       <View className={styles.itemIcon}></View>

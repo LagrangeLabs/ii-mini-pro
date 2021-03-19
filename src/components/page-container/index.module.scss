@@ -1,9 +1,14 @@
 .index {
+  display: flex;
+  flex-direction: column;
   position: relative;
   background: transparent;
   box-sizing: border-box;
+  min-height: 100vh;
   .content {
     padding-top: 20px;
     background: #f9f9f9;
+    height: 100%;
+    flex: 1;
   }
 }

@@ -70,6 +70,12 @@ const TitleBar = (props: TitleBarProps) => {
       // 清空历史路由缓存，并初始化路由缓存
       return await setStorageSync('routers', [_routers[title]]);
     }
+
+    // 如果某个页面重复请求，则不存储此次路由记录
+    if (routers.length > 0 && routers[routers.length - 1] === _routers[title]) {
+      return;
+    }
+
     await setStorageSync('routers', [...routers, _routers[title]]);
   };
 

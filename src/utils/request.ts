@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro';
 import axios from 'axios';
 
-export const ROOT_PATH = '/movecar/movecar';
+export const ROOT_PATH = '/ii_mini_pro';
 
 interface IRequest {
   url: string;

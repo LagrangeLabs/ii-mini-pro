@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
+import ClassName from 'classnames';
 import Taro from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
 import Icon from '../Icon';
@@ -10,6 +11,10 @@ export interface TabBarProps {
   backgroundColor?: string;
   iconSize?: number;
   fontSize?: number;
+  color?: string;
+  activeColor?: string;
+  style?: CSSProperties;
+  classname?: string;
 }
 
 interface ITab {
@@ -20,9 +25,19 @@ interface ITab {
 
 const tabList: ITab[] = [
   {
-    title: 'ii-mini-pro',
-    icon: 'iconyiche',
-    path: '/pages/init/index',
+    title: 'tab1',
+    icon: 'iconhome',
+    path: '/componentsExample/tab-bar/index',
+  },
+  {
+    title: 'tab2',
+    icon: 'iconwode',
+    path: '/componentsExample/tab-bar/index',
+  },
+  {
+    title: 'tab3',
+    icon: 'iconricheng',
+    path: '/componentsExample/tab-bar/index',
   },
 ];
 
@@ -32,27 +47,34 @@ const TabBar = (props: TabBarProps) => {
     backgroundColor = '#fff',
     iconSize = 24,
     fontSize = 14,
+    color = '#98989E',
+    activeColor = '#0069FF',
+    style = {},
+    classname = '',
   } = props;
 
   const renderTab = (tab: ITab, index: number = 1) => (
     <View
       className={styles.tab}
-      onClick={() => Taro.switchTab({ url: tab.path })}
+      onClick={() => Taro.reLaunch({ url: tab.path })}
     >
       <Text
-        style={{ fontSize, color: current === index ? '#0069FF' : '#464A5A' }}
+        style={{ fontSize, color: current === index ? activeColor : color }}
       >
         {tab.title}
       </Text>
       <Icon
         icon={tab.icon}
         size={iconSize}
-        color={current === index ? '#0069FF' : '#98989E'}
+        color={current === index ? activeColor : color}
       />
     </View>
   );
   return (
-    <View className={styles.tabBar} style={{ backgroundColor }}>
+    <View
+      className={ClassName(styles.tabBar, classname)}
+      style={{ ...style, backgroundColor }}
+    >
       {tabList.map((tab, index) => renderTab(tab, index + 1))}
     </View>
   );

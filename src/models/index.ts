@@ -1,8 +1,8 @@
-import init from './home';
-import { IState as initState } from './home/interface';
+import init from './mock';
+import { IState as mockState } from './mock/interface';
 
 export default [init];
 
 export interface connectState {
-  home: initState
+  mock: mockState
 }

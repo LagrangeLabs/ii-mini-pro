@@ -1,10 +1,10 @@
-import initApi from './init';
-import IInitApis from './init/interface';
+import mockApi from './mock';
+import IMockApiApis from './mock/interface';
 
-interface IApis extends IInitApis {}
+interface IApis extends IMockApiApis {}
 
 const APIS: IApis = {
-  ...initApi,
+  ...mockApi,
 };
 
 export default APIS;

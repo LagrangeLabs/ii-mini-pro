@@ -24,6 +24,7 @@ const config = {
     '@/services': resolve(__dirname, '..', 'src/services'),
     '@/asset': resolve(__dirname, '..', 'src/asset'),
     '@/components': resolve(__dirname, '..', 'src/components'),
+    '@/models': resolve(__dirname, '..', 'src/models'),
     '@/': resolve(__dirname, '..', 'src'),
   },
   sass: {

@@ -8,6 +8,7 @@ import defaultIcon from './loading.png';
 import './index.scss';
 
 export interface ScrollListProps extends ScrollViewProps {
+  distance?: number;
   loading?: boolean;
   hasRefresh?: boolean;
   hasMore?: boolean;
@@ -23,6 +24,7 @@ const ScrollList = (props: ScrollListProps) => {
   const {
     children,
     className,
+    distance = 55,
     loading = false,
     hasRefresh = false,
     hasMore = false,
@@ -63,7 +65,12 @@ const ScrollList = (props: ScrollListProps) => {
     query.selectViewport().scrollOffset();
     query.exec(function (res) {
       const { scrollTop = 0 } = res[1];
-      if (scrollTop < 15 && !loading && newDistance > 2 && newDistance < 55) {
+      if (
+        scrollTop < 15 &&
+        !loading &&
+        newDistance > 2 &&
+        newDistance < distance
+      ) {
         setTopDistance(newDistance);
       }
     });

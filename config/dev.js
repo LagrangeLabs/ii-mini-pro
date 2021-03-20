@@ -1,5 +1,5 @@
 const isH5 = process.env.TARO_ENV === 'h5';
-const HOST = 'https://xxx';
+const HOST = 'http://yapi.devdemo.trs.net.cn/mock/1556';
 
 module.exports = {
   // 全局变量

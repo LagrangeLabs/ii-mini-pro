@@ -24,7 +24,13 @@ const Index = () => {
   );
 
   return (
-    <PageContainer className={styles.index} title="ii-mini-pro" hasBack={false}>
+    <PageContainer
+      className={styles.index}
+      title="ii-mini-pro"
+      path="/pages/home/index"
+      type="homePage"
+      hasBack={false}
+    >
       {ComponentList.map((component: IRenderItem, index: number) =>
         renderItem(component, index),
       )}

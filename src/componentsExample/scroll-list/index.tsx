@@ -40,9 +40,15 @@ const Index = () => {
     <PageContainer
       className={styles.index}
       title="滚动列表（包含下拉刷新，加载）"
+      path="/componentsExample/scroll-list/index"
       hasBack={true}
     >
-      <ScrollList hasRefresh={true} loading={loading} onRefresh={refresh} distance={55}>
+      <ScrollList
+        hasRefresh={true}
+        loading={loading}
+        onRefresh={refresh}
+        distance={55}
+      >
         {scrollList.map((item: any, index: number) => (
           <View className={styles.item} key={index}>
             {item.value || '999'}

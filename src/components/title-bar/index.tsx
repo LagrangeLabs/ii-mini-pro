@@ -6,24 +6,20 @@ import defaultBack from './back.png';
 import styles from './index.module.scss';
 export interface TitleBarProps {
   title: string;
+  path: string;
+  type?: 'homePage' | 'subPage';
   hasBack?: boolean;
   bgColor?: string;
   fontColor?: string;
 }
-
-const _routers = {
-  'ii-mini-pro': '/pages/home/index',
-  图标: '/componentsExample/Icon/index',
-  '滚动列表（包含下拉刷新，加载）': '/componentsExample/scroll-list/index',
-  底部tabber: '/componentsExample/tab-bar/index',
-  微信导航栏: '/componentsExample/title-bar/index',
-};
 
 const { setStorageSync } = Taro;
 
 const TitleBar = (props: TitleBarProps) => {
   const {
     title,
+    path,
+    type = 'subPage',
     hasBack = true,
     bgColor = '#ffffff',
     fontColor = '#464a5a',
@@ -59,24 +55,23 @@ const TitleBar = (props: TitleBarProps) => {
   };
 
   const saveRouters = async () => {
-    if (!_routers[title]) {
+    if (!path) {
       return;
     }
-    const _routerFirstKey = Object.keys(_routers)[0];
     const routers = getStorageSync('routers') || [];
 
-    // 如果当前路由是首页（默认首个）路由
-    if (title === _routerFirstKey) {
+    // 如果当前路由是首页路由
+    if (type === 'homePage') {
       // 清空历史路由缓存，并初始化路由缓存
-      return await setStorageSync('routers', [_routers[title]]);
+      return await setStorageSync('routers', [path]);
     }
 
     // 如果某个页面重复请求，则不存储此次路由记录
-    if (routers.length > 0 && routers[routers.length - 1] === _routers[title]) {
+    if (routers.length > 0 && routers[routers.length - 1] === path) {
       return;
     }
 
-    await setStorageSync('routers', [...routers, _routers[title]]);
+    await setStorageSync('routers', [...routers, path]);
   };
 
   // 获取 titleBar 高度（适配不同机型）

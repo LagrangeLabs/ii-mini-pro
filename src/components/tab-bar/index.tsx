@@ -1,75 +1,77 @@
 import React, { CSSProperties } from 'react';
 import ClassName from 'classnames';
 import Taro from '@tarojs/taro';
-import { View, Text } from '@tarojs/components';
+import { View } from '@tarojs/components';
 import Icon from '../Icon';
 
 import styles from './index.module.scss';
 
+export type TCurrentData = {
+  title: string;
+  path?: string;
+  dotText?: string;
+};
+
+export type TTab = {
+  title: string;
+  icon: string;
+  path?: string;
+  dot?: boolean;
+  dotText?: string;
+  dotBg?: string;
+  dotColor?: string;
+};
+
 export interface TabBarProps {
   current: number;
+  tabList: TTab[];
   backgroundColor?: string;
   iconSize?: number;
   fontSize?: number;
   color?: string;
-  activeColor?: string;
+  selectedColor?: string;
   style?: CSSProperties;
   classname?: string;
+  onClick?(current: number, currentData: TCurrentData): void;
 }
-
-interface ITab {
-  title: string;
-  icon: string;
-  path: string;
-}
-
-const tabList: ITab[] = [
-  {
-    title: 'tab1',
-    icon: 'iconhome',
-    path: '/componentsExample/tab-bar/index',
-  },
-  {
-    title: 'tab2',
-    icon: 'iconwode',
-    path: '/componentsExample/tab-bar/index',
-  },
-  {
-    title: 'tab3',
-    icon: 'iconricheng',
-    path: '/componentsExample/tab-bar/index',
-  },
-];
 
 const TabBar = (props: TabBarProps) => {
   const {
     current,
+    tabList,
     backgroundColor = '#fff',
     iconSize = 24,
     fontSize = 14,
     color = '#98989E',
-    activeColor = '#0069FF',
+    selectedColor = '#0069FF',
     style = {},
     classname = '',
+    onClick = () => {},
   } = props;
 
-  const renderTab = (tab: ITab, index: number = 1) => (
-    <View
-      className={styles.tab}
-      onClick={() => Taro.reLaunch({ url: tab.path })}
-    >
-      <Text
-        style={{ fontSize, color: current === index ? activeColor : color }}
+  const renderTab = (tab: TTab, index: number = 1) => {
+    const { title, icon, path = '', dotText = '' } = tab;
+    return (
+      <View
+        className={styles.tab}
+        onClick={() => onClick(index, { title, path, dotText })}
       >
-        {tab.title}
-      </Text>
-      <Icon
-        icon={tab.icon}
-        size={iconSize}
-        color={current === index ? activeColor : color}
-      />
-    </View>
-  );
+        <View
+          style={{
+            fontSize: `${fontSize}px`,
+            color: current === index ? selectedColor : color,
+          }}
+        >
+          {tab.title}
+        </View>
+        <Icon
+          icon={icon}
+          size={iconSize}
+          color={current === index ? selectedColor : color}
+        />
+      </View>
+    );
+  };
   return (
     <View
       className={ClassName(styles.tabBar, classname)}

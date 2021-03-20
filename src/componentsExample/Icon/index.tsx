@@ -7,7 +7,12 @@ import styles from './index.module.scss';
 
 const Index = () => {
   return (
-    <PageContainer className={styles.index} title="图标" hasBack={true}>
+    <PageContainer
+      className={styles.index}
+      title="图标"
+      path="/componentsExample/Icon/index"
+      hasBack={true}
+    >
       <View className={styles.iconItem_1}>
         <Icon icon="iconhome" color="red" size={30} />
       </View>

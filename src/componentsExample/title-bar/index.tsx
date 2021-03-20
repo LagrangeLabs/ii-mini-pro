@@ -10,6 +10,7 @@ const Index = () => {
     <PageContainer
       className={styles.index}
       title="微信导航栏"
+      path="/componentsExample/title-bar/index"
       hasBack={true}
     ></PageContainer>
   );

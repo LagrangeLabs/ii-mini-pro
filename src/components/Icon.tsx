@@ -15,7 +15,12 @@ const Icon = (props: IconProps) => {
     <View
       className={`iconfont ${icon}`}
       onClick={onClick}
-      style={{ color, fontSize: `${size}px`, display: 'inline' }}
+      style={{
+        color,
+        fontSize: `${size}px`,
+        display: 'inline',
+        lineHeight: '1',
+      }}
     ></View>
   );
 };

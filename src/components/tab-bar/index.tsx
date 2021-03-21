@@ -1,39 +1,11 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import ClassName from 'classnames';
 import Taro from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import Icon from '../Icon';
+import { Icon } from '@/components/index';
 
+import { TTab, TabBarProps } from './interface';
 import styles from './index.module.scss';
-
-export type TCurrentData = {
-  title: string;
-  path?: string;
-  dotText?: string;
-};
-
-export type TTab = {
-  title: string;
-  icon: string;
-  path?: string;
-  dot?: boolean;
-  dotText?: string;
-  dotBg?: string;
-  dotColor?: string;
-};
-
-export interface TabBarProps {
-  current: number;
-  tabList: TTab[];
-  backgroundColor?: string;
-  iconSize?: number;
-  fontSize?: number;
-  color?: string;
-  selectedColor?: string;
-  style?: CSSProperties;
-  classname?: string;
-  onClick?(current: number, currentData: TCurrentData): void;
-}
 
 const TabBar = (props: TabBarProps) => {
   const {
@@ -50,12 +22,35 @@ const TabBar = (props: TabBarProps) => {
   } = props;
 
   const renderTab = (tab: TTab, index: number = 1) => {
-    const { title, icon, path = '', dotText = '' } = tab;
+    const {
+      title,
+      icon,
+      path = '',
+      dot = false,
+      dotText = '',
+      dotBg = 'red',
+      dotColor = '#fff',
+    } = tab;
     return (
       <View
         className={styles.tab}
         onClick={() => onClick(index, { title, path, dotText })}
       >
+        <View
+          className={styles.point}
+          style={{
+            visibility: dot ? 'visible' : 'hidden',
+            background: dotBg,
+            color: dotColor,
+          }}
+        >
+          {dotText}
+        </View>
+        <Icon
+          icon={icon}
+          size={iconSize}
+          color={current === index ? selectedColor : color}
+        />
         <View
           style={{
             fontSize: `${fontSize}px`,
@@ -64,11 +59,6 @@ const TabBar = (props: TabBarProps) => {
         >
           {tab.title}
         </View>
-        <Icon
-          icon={icon}
-          size={iconSize}
-          color={current === index ? selectedColor : color}
-        />
       </View>
     );
   };

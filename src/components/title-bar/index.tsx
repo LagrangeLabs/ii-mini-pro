@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
+import ClassNames from 'classnames';
 import Taro, { useDidShow } from '@tarojs/taro';
 import { View, Image } from '@tarojs/components';
 
+import { TitleBarProps } from './interface';
 import defaultBack from './back.png';
 import styles from './index.module.scss';
-export interface TitleBarProps {
-  title: string;
-  path: string;
-  type?: 'homePage' | 'subPage';
-  hasBack?: boolean;
-  bgColor?: string;
-  fontColor?: string;
-}
 
 const { setStorageSync } = Taro;
 
@@ -19,6 +13,7 @@ const TitleBar = (props: TitleBarProps) => {
   const {
     title,
     path,
+    classname = '',
     type = 'subPage',
     hasBack = true,
     bgColor = '#ffffff',
@@ -84,7 +79,10 @@ const TitleBar = (props: TitleBarProps) => {
   };
 
   return (
-    <View style={{ position: 'relative' }}>
+    <View
+      className={ClassNames('', classname)}
+      style={{ position: 'relative' }}
+    >
       {title && process.env.TARO_ENV === 'weapp' && (
         <View>
           <View

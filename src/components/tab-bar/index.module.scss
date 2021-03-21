@@ -8,7 +8,18 @@
   @include flex-between-center;
 }
 .tab {
-  flex-direction: column-reverse;
+  position: relative;
+  flex-direction: column;
   flex: 1;
   @include flex-center-center;
+
+  .point {
+    position: absolute;
+    top: 0px;
+    display: inline;
+    padding: 4px;
+    border-radius: 10px 10px 10px 0px;
+    font-size: 16px;
+    transform: translate(80%, -50%);
+  }
 }

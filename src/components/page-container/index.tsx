@@ -1,16 +1,11 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import ClassName from 'classnames';
 import Taro from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import TitleBar, { TitleBarProps } from '../title-bar';
+import { TitleBar } from '@/components/index';
 
+import { PageContainerProps } from './interface';
 import styles from './index.module.scss';
-
-interface PageContainerProps extends TitleBarProps {
-  className?: string;
-  style?: CSSProperties;
-  children?: any;
-}
 
 const PageContainer = (props: PageContainerProps) => {
   const { className, children, style, ...rest } = props;

@@ -1,12 +1,7 @@
 import React from 'react';
 import { View } from '@tarojs/components';
 
-interface IconProps {
-  icon: string;
-  size: number;
-  color: string;
-  onClick?(): void;
-}
+import { IconProps } from './interface';
 
 const Icon = (props: IconProps) => {
   const { icon, size, color, onClick = () => {} } = props;

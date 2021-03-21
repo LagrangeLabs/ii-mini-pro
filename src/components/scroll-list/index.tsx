@@ -2,21 +2,10 @@ import React, { useState, useEffect } from 'react';
 import ClassNames from 'classnames';
 import Taro from '@tarojs/taro';
 import { View, ScrollView, Image } from '@tarojs/components';
-import { ScrollViewProps } from '@tarojs/components/types/ScrollView';
 import defaultIcon from './loading.png';
 
+import { ScrollListProps } from './interface';
 import './index.scss';
-
-export interface ScrollListProps extends ScrollViewProps {
-  distance?: number;
-  loading?: boolean;
-  hasRefresh?: boolean;
-  hasMore?: boolean;
-  nodataText?: string;
-  list?: any[];
-  children?: any;
-  onRefresh?(): void;
-}
 
 let starDistance = 0;
 

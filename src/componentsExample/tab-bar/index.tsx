@@ -1,8 +1,8 @@
 import React from 'react';
-import { AtTabBar } from 'taro-ui';
 import Taro from '@tarojs/taro';
 import { View } from '@tarojs/components';
 import { PageContainer, TabBar } from '@/components/index';
+import { TCurrentData } from '@/components/tab-bar/interface';
 
 import styles from './index.module.scss';
 
@@ -11,11 +11,16 @@ const tabList = [
     title: 'tab1',
     icon: 'iconhome',
     path: '/componentsExample/tab-bar/index',
+    dot: true,
+    dotText: 99,
   },
   {
     title: 'tab2',
     icon: 'iconwode',
     path: '/componentsExample/tab-bar/index',
+    dot: true,
+    dotText: '气泡',
+    dotBg: 'black',
   },
   {
     title: 'tab3',
@@ -23,6 +28,11 @@ const tabList = [
     path: '/componentsExample/tab-bar/index',
   },
 ];
+
+const click = (current: number, data: TCurrentData) => {
+  console.log('current =>', current);
+  console.log('data =>', data);
+};
 
 const Index = () => {
   return (
@@ -37,6 +47,7 @@ const Index = () => {
           current={1}
           tabList={tabList}
           style={{ position: 'relative' }}
+          onClick={click}
         />
       </View>
       <View className={styles.item}>
@@ -61,7 +72,6 @@ const Index = () => {
         <TabBar
           current={3}
           tabList={tabList}
-          style={{ position: 'relative' }}
           selectedColor="#1AB857"
           color="blue"
         />

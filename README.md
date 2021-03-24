@@ -1,19 +1,19 @@
 # ii-mini-pro（TARO 多端项目模版）
 
-> 目前只适用于H5端及微信小程序
+> 目前只适用于 H5 端及微信小程序
 
-该项目以  [taro](https://taro-docs.jd.com/taro/docs/README/index.html) 为底层前端框架，以 [Taro-ui](https://taro-ui.jd.com/#/docs/introduction) 为 UI 组件库，[React hooks](https://react.docschina.org/docs/hooks-intro.html) 编写前端业务组件，以[TypeScript](https://www.tslang.cn/) 做为静态类型检查，包含完整的前端多端工程化实践。
-
+该项目以 [taro](https://taro-docs.jd.com/taro/docs/README/index.html) 为底层前端框架，以 [Taro-ui](https://taro-ui.jd.com/#/docs/introduction) 为 UI 组件库，[React hooks](https://react.docschina.org/docs/hooks-intro.html) 编写前端业务组件，以[TypeScript](https://www.tslang.cn/) 做为静态类型检查，包含完整的前端多端工程化实践。
 
 ## 版本
-- Taro v3.0.17  [官方地址](https://taro-docs.jd.com/taro/docs/README/index.html)
+
+- Taro v3.0.17 [官方地址](https://taro-docs.jd.com/taro/docs/README/index.html)
 - Taro-ui 3.0.0-alpha.2 [官方地址](https://taro-ui.jd.com/#/docs/introduction)
 - typescript 3.7.0
 
 ## 目录结构
 
 ```
-|-- ii-mini-pro  
+|-- ii-mini-pro
     |-- .editorconfig
     |-- .eslintrc
     |-- .gitignore
@@ -45,6 +45,7 @@
 ```
 
 ## 快速开始
+
 Install dependencies
 
 ```
@@ -58,3 +59,9 @@ Start the dev server
 $ yarn run dev:h5
 $ yarn run dev:weapp
 ```
+
+## 注意事项
+
+- iconfont 生成： [taro-iconfont-cli](https://www.npmjs.com/package/taro-iconfont-cli)
+- 刷新命令：`npx iconfont-taro`
+- [Taro 2.x 与 3.x 之间 taro-iconfont-cli 注意事项](https://github.com/iconfont-cli/taro-iconfont-cli)

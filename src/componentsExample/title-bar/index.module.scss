@@ -1,1 +1,10 @@
-.index {}
+.index {
+  .item {
+    @include flex-between-center;
+    .button {
+      width: 200px;
+      height: 80px;
+      font-size: 20px;
+    }
+  }
+}

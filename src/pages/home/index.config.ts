@@ -5,7 +5,7 @@ export default {
 export const ComponentList = [
   {
     title: '图标',
-    url: 'Icon/index',
+    url: 'iconFont/index',
   },
   {
     title: '滚动列表（包含下拉刷新，加载）',

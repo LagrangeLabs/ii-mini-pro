@@ -2,7 +2,7 @@ import React from 'react';
 import ClassName from 'classnames';
 import Taro from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import { Icon } from '@/components/index';
+import IconFont from '@/components/iconfont';
 
 import { TTab, TabBarProps } from './interface';
 import styles from './index.module.scss';
@@ -12,7 +12,7 @@ const TabBar = (props: TabBarProps) => {
     current,
     tabList,
     backgroundColor = '#fff',
-    iconSize = 24,
+    iconSize = 40,
     fontSize = 14,
     color = '#98989E',
     selectedColor = '#0069FF',
@@ -46,8 +46,8 @@ const TabBar = (props: TabBarProps) => {
         >
           {dotText}
         </View>
-        <Icon
-          icon={icon}
+        <IconFont
+          name={icon as any}
           size={iconSize}
           color={current === index ? selectedColor : color}
         />

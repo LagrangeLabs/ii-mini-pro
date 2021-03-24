@@ -13,6 +13,7 @@ const TitleBar = (props: TitleBarProps) => {
   const {
     title,
     path,
+    icon = '',
     classname = '',
     type = 'subPage',
     hasBack = true,
@@ -106,7 +107,11 @@ const TitleBar = (props: TitleBarProps) => {
             >
               {hasBack && (
                 <View className={styles.backIconWrap} onClick={back}>
-                  <Image src={defaultBack} className={styles.backIcon} />
+                  {icon ? (
+                    icon
+                  ) : (
+                    <Image src={defaultBack} className={styles.backIcon} />
+                  )}
                 </View>
               )}
               <View className={styles.title} style={{ color: fontColor }}>

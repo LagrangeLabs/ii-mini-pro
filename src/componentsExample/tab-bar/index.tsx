@@ -9,14 +9,14 @@ import styles from './index.module.scss';
 const tabList = [
   {
     title: 'tab1',
-    icon: 'iconhome',
+    icon: 'home',
     path: '/componentsExample/tab-bar/index',
     dot: true,
     dotText: 99,
   },
   {
     title: 'tab2',
-    icon: 'iconwode',
+    icon: 'wode',
     path: '/componentsExample/tab-bar/index',
     dot: true,
     dotText: '气泡',
@@ -24,7 +24,7 @@ const tabList = [
   },
   {
     title: 'tab3',
-    icon: 'iconricheng',
+    icon: 'richeng',
     path: '/componentsExample/tab-bar/index',
   },
 ];
